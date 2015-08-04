@@ -1,3 +1,5 @@
+*, *:before, *:after { box-sizing:  border-box !important;}
+
 body {
   font-size: 15px;
   text-transform: uppercase;
@@ -10,7 +12,7 @@ a:hover { color: #f0ad4e; text-decoration: none }
 .padding { padding: 0.5em; }
 
 .splash-image {
-  min-height: 300px;
+  height: 300px;
 }
 
 .splash-image h1 {
@@ -24,12 +26,19 @@ a:hover { color: #f0ad4e; text-decoration: none }
   text-transform: uppercase;
 }
 
+#nav.affix {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index:10;
+}
+
 .navbar-form {
   margin-right: -15px;
 }
 
 main {
-  padding: 2em 0;
+  /*padding: 2em 0;*/
 }
 
 .image-container {
@@ -37,7 +46,7 @@ main {
   border-color: #e7e7e7;
   border-radius: 0.5em;
   border: 2px solid #ddd;
-  margin-bottom: 2em;
+  margin-bottom: 1.3em;
   color: #444;
 }
 
