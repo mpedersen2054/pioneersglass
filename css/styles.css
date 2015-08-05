@@ -1,5 +1,8 @@
 *, *:before, *:after { box-sizing:  border-box !important;}
 
+.hori-line { border-bottom: 1px solid #ccc; width: 100%; }
+.hori-line
+
 body {
   font-size: 15px;
   text-transform: uppercase;
@@ -65,22 +68,63 @@ a:hover { color: #f0ad4e; text-decoration: none }
 /*show image*/
 
 .large-image-container {
-  padding: 15px;
 }
 .large-image-container img {
   /*height: 700px;*/
 }
 
 .thumbs {
-  padding: 15px;
+  margin-left: -15px;
+  margin-top: 15px;
+}
+
+.thumbs a {
+  float: left;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+.thumbs a:nth-child(1) {
+  padding-left: 0;
 }
 
 .thumb.vert {
-  width: 117px;
-  height: 175.5px;
+  width: 87.75px;
+  height: 131.625px;
 }
 .thumb.vert img {
-  max-width: 117px;
-  max-height: 175.5px;
+  max-width: 87.75px;
+  max-height: 131.625px;
+}
+
+.thumb.hori {
+  width: 124px;
+  height: 75.2px;
+}
+.thumb.hori img {
+  max-width: 124px;
+  max-height: 75.2px;
 }
 .hori {}
+
+
+.indv-meta {
+  padding-left: 2em;
+}
+
+.indv-meta > .name {
+  font-size: 2.25em;
+  font-weight: 600;
+
+}
+.indv-meta .date {
+  margin-bottom: 2em;
+  font-style: italic;
+}
+.indv-meta .desc {
+  margin-bottom: 2em;
+}
+.indv-meta .authors {
+  font-size: 1.25em;
+}
+.indv-meta .inquire {}
