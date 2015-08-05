@@ -16,7 +16,7 @@ a:hover { color: #f0ad4e; text-decoration: none }
 }
 
 .splash-image h1 {
-  margin-top: 3em;
+  margin-top: 2em;
   font-size: 8vh;
 }
 
@@ -29,16 +29,20 @@ a:hover { color: #f0ad4e; text-decoration: none }
 #nav.affix {
   position: fixed;
   top: 0;
-  width: 100%;
   z-index:10;
+  width: 100%;
+}
+/*fix to jump after affix*/
+.affix + #main {
+  padding-top: 50px;
 }
 
 .navbar-form {
   margin-right: -15px;
 }
 
-main {
-  /*padding: 2em 0;*/
+#main {
+  margin: 4em 0;
 }
 
 .image-container {
@@ -46,7 +50,7 @@ main {
   border-color: #e7e7e7;
   border-radius: 0.5em;
   border: 2px solid #ddd;
-  margin-bottom: 1.3em;
+  margin-bottom: 2em;
   color: #444;
 }
 
@@ -54,8 +58,29 @@ main {
   font-size: 1.3em;
 }
 
-.image-container .authors {
+.image-container .authors {}
+.image-container .date {}
+
+
+/*show image*/
+
+.large-image-container {
+  padding: 15px;
 }
-.image-container .date {
+.large-image-container img {
+  /*height: 700px;*/
 }
 
+.thumbs {
+  padding: 15px;
+}
+
+.thumb.vert {
+  width: 117px;
+  height: 175.5px;
+}
+.thumb.vert img {
+  max-width: 117px;
+  max-height: 175.5px;
+}
+.hori {}
