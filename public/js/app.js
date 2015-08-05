@@ -1,5 +1,7 @@
 
 
+
+
 function navbarAffix() {
   $('#nav').affix({
     offset: {
@@ -10,4 +12,8 @@ function navbarAffix() {
 
 }
 
-navbarAffix();
+
+$(document).ready(function() {
+  navbarAffix();
+  $('img').unveil(300);
+});

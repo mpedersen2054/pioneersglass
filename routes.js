@@ -1,5 +1,7 @@
 module.exports = function(app) {
 
+  // Artworks
+
   app.get('/', function(req, res) {
     res.render('artworks', { 'hello': 'goodbye' });
   });

@@ -1,18 +1,12 @@
 *, *:before, *:after { box-sizing:  border-box !important;}
 
 .hori-line { border-bottom: 1px solid #ccc; width: 100%; }
-.hori-line
+.padding { padding: 0.5em; }
 
-body {
-  font-size: 15px;
-  text-transform: uppercase;
-  color: #444;
-}
-
+body { font-size: 15px; color: #444; }
 img { width: 100%; border-radius: 0.333em }
 a { color: inherit; }
 a:hover { color: #f0ad4e; text-decoration: none }
-.padding { padding: 0.5em; }
 p { margin: 0; padding: 0; }
 
 .splash-image {
@@ -27,7 +21,6 @@ p { margin: 0; padding: 0; }
 .navbar {
   border: none;
   background-image: none;
-  text-transform: uppercase;
 }
 
 #nav.affix {
@@ -50,10 +43,9 @@ p { margin: 0; padding: 0; }
 }
 
 .image-container {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+  background-color: #f4f4f4;
   border-radius: 0.5em;
-  border: 2px solid #ddd;
+  /*border: 2px solid #ddd;*/
   margin-bottom: 2em;
   color: #444;
 }
@@ -68,7 +60,8 @@ p { margin: 0; padding: 0; }
 
 /*show image*/
 
-.large-image-container {
+.large-image-container a {
+  width: 565px;
 }
 .large-image-container img {
   /*height: 700px;*/
