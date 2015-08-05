@@ -1,0 +1,19 @@
+{
+  "name": "pioneers",
+  "version": "0.0.1",
+  "private": true,
+  "description": "image gal",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "~4.12.2",
+    "body-parser": "~1.12.0",
+    "hbs": "^2.9.0",
+    "mongoose": "^4.0.2"
+  },
+  "author": "",
+  "license": "ISC"
+}
