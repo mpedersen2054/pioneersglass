@@ -1,27 +1,19 @@
-var path    = require('path');
 var express = require('express');
+var hbs     = require('hbs');
+var path    = require('path');
 
 var app = express();
 
-var staticPath = path.resolve(__dirname, '/public');
-app.use(express.static(staticPath));
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/partials');
 
-app.get('/', function(req, res, next) {
-  res.send('hello index page!')
-})
+// Handle known route paths
+require('./routes')(app);
 
-app.get('*', function(req, res, next) {
-  var err = new Error();
-  err.status = 404;
-  next(err);
-});
-
-// handling 404 errors
-app.use(function(err, req, res, next) {
-  if(err.status !== 404) { return next(); }
-
-  res.send(err.message || '** no unicorns here **');
-});
+// Handle not recognized requests
+require('./404_handler')(app);
 
 
 app.listen(3000, function() { console.log('listening'); });
