@@ -1,0 +1,16 @@
+{
+  "_id": 1,
+  "name": "Artwork 1",
+  "createdAt": "12/12/99",
+  "uid": "yg1_sqsshh",
+  "authors": [
+    "Mark Wahlburg",
+    "Bearclaw"
+  ],
+  "children": [
+    "yg5_myr5ws",
+    "yg4_qa42vt",
+    "yg2_bpiotv",
+    "yg3_zcw878",
+  ]
+}

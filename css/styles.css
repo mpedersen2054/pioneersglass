@@ -9,10 +9,11 @@ body {
   color: #444;
 }
 
-img { width: 100%; }
+img { width: 100%; border-radius: 0.333em }
 a { color: inherit; }
 a:hover { color: #f0ad4e; text-decoration: none }
 .padding { padding: 0.5em; }
+p { margin: 0; padding: 0; }
 
 .splash-image {
   height: 300px;
@@ -88,20 +89,22 @@ a:hover { color: #f0ad4e; text-decoration: none }
   padding-left: 0;
 }
 
-.thumb.vert {
+.vert {
   width: 87.75px;
   height: 131.625px;
+  margin-bottom: 0.5em;
 }
-.thumb.vert img {
+.vert img {
   max-width: 87.75px;
   max-height: 131.625px;
 }
 
-.thumb.hori {
+.hori {
   width: 124px;
   height: 75.2px;
+  margin-bottom: 0.5em;
 }
-.thumb.hori img {
+.hori img {
   max-width: 124px;
   max-height: 75.2px;
 }
@@ -118,13 +121,22 @@ a:hover { color: #f0ad4e; text-decoration: none }
 
 }
 .indv-meta .date {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   font-style: italic;
 }
 .indv-meta .desc {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
-.indv-meta .authors {
-  font-size: 1.25em;
+.indv-meta .authors .label {
+  font-size: 1em;
 }
+.indv-meta .authors p,
+.indv-meta .recommended p {
+  font-size: 1.2em;
+  margin-top: 2em;
+
+}
+
+.indv-meta .recommended {}
+
 .indv-meta .inquire {}
