@@ -12,9 +12,7 @@ function searchFormSubmit() {
   var searchInput = $('#search-input');
   searchForm.on('submit', function(e) {
     e.preventDefault();
-    if (searchInput.val() !== '' || ' ') {
-      window.location.href = 'http://localhost:3000/search?term=' + searchInput.val();
-    }
+    window.location.href = 'http://localhost:3000/search?term=' + searchInput.val();
   })
 }
 

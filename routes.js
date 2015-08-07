@@ -15,7 +15,7 @@ module.exports = function(app) {
   app.get('/search', function(req, res) {
     // only accept ?term and decode uri
     var term = ('term' in req.query) ? decodeURIComponent(req.query.term) : '';
-    db.artworks.find({ name: term }, function(err, artworks) {
+    db.artworks.find({ name: new RegExp(term, 'i') }, function(err, artworks) {
       if(err) console.log(err);
       res.render('search', { artworks: artworks, term: term });
     });
