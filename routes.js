@@ -10,4 +10,11 @@ module.exports = function(app) {
     res.render('artwork', { 'hello': 'single artwork' })
   })
 
+  app.get('/search', function(req, res) {
+    console.log('called server /search')
+    var term = ('term' in req.query) ? req.query.term : ''; // can only query ?term
+    res.render('search', { term: term })
+
+  })
+
 };
