@@ -1,20 +1,24 @@
+var db = require('./schema');
+
 module.exports = function(app) {
 
-  // Artworks
-
   app.get('/', function(req, res) {
-    res.render('artworks', { 'hello': 'goodbye' });
+    db.artworks.find({}, function(err, artworks) {
+      res.render('artworks', { artworks: artworks });
+    });
   });
 
   app.get('/artworks/:_id', function(req, res) {
     res.render('artwork', { 'hello': 'single artwork' })
-  })
+  });
 
   app.get('/search', function(req, res) {
-    console.log('called server /search')
-    var term = ('term' in req.query) ? req.query.term : ''; // can only query ?term
-    res.render('search', { term: term })
-
-  })
+    // only accept ?term and decode uri
+    var term = ('term' in req.query) ? decodeURIComponent(req.query.term) : '';
+    db.artworks.find({ name: term }, function(err, artworks) {
+      if(err) console.log(err);
+      res.render('search', { artworks: artworks, term: term });
+    });
+  });
 
 };

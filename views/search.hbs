@@ -1,1 +1,10 @@
-hello {{term}}
+
+<div class="container">
+  {{#if artworks.length}}
+    something was found for {{term}}!
+    {{artworks}}
+
+  {{else}}
+    nothing was found for {{term}}
+  {{/if}}
+</div>

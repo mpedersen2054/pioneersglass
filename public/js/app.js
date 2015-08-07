@@ -10,8 +10,6 @@ function navbarAffix() {
 function searchFormSubmit() {
   var searchForm = $('#search-form');
   var searchInput = $('#search-input');
-  console.log('jq func called')
-  console.log(window.location)
   searchForm.on('submit', function(e) {
     e.preventDefault();
     if (searchInput.val() !== '' || ' ') {
