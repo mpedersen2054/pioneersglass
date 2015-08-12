@@ -8,8 +8,12 @@ module.exports = function(app) {
     });
   });
 
-  app.get('/artworks/:_id', function(req, res) {
-    res.render('show_artwork', { 'hello': 'single artwork' });
+  app.get('/artworks/:id', function(req, res) {
+    Artwork.findOne({ id: req.params.id }, function(err, artwork) {
+      if(err) console.log(err);
+      if(!artwork) console.log(err);
+      res.render('show_artwork', { artwork: artwork });
+    });
   });
 
   app.post('/artworks', function(req, res) {

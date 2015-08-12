@@ -4,12 +4,12 @@ var ChildrenSchema = new mongoose.Schema({ ori: Number, url: String });
 
 var ArtworkSchema = new mongoose.Schema({
   id: Number,
+  uid: String,
   name: String,
   createdAt: { type: Date, default: Date.now },
   addedAt: { type: Date, default: Date.now },
   fcreatedAt: String,
   faddedAt: String,
-  uid: String,
   authors: [ String ],
   children: [ChildrenSchema]
 });
