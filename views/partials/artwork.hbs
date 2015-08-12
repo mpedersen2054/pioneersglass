@@ -1,0 +1,19 @@
+
+<div class="col-md-3 col-sm-6 col-xs-12">
+  <div class="image-container">
+    <a href="/artworks/{{id}}">
+      <div class="padding">
+        <div class="name">{{name}}</div>
+      </div>
+      <img src="http://res.cloudinary.com/mattp/image/upload/c_scale,w_725/v1429579151/{{uid}}.jpg" alt="{{name}}">
+    </a>
+    <div class="padding">
+      <div class="authors">
+        {{#each authors}}
+        <span class="label label-warning">{{this}}</span>
+        {{/each}}
+      </div>
+      <div class="date">{{fcreatedAt}}</div>
+    </div>
+  </div>
+</div>

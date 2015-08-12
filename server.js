@@ -5,6 +5,7 @@ var path       = require('path');
 
 var app = express();
 
+
 // server
 var mongoose = require('mongoose'), dbName = 'kevin';
 mongoose.connect('mongodb://localhost/'+dbName);
