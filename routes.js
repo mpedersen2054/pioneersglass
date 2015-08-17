@@ -1,4 +1,5 @@
 var Artwork = require('./schema').artworks;
+var RegExp  = require('regex');
 
 module.exports = function(app) {
 
