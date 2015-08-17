@@ -1,80 +1,72 @@
+var $artworksContainers = $('.artworks-container');
+var $selectPicker       = $('.selectpicker');
+var $searchInput        = $('#search-input');
+var $searchForm         = $('#search-form');
+var $splashImg          = $('.splash-image');
+var $thumbs             = $('.artwork-thumb');
+var $nav                = $('#nav');
 
+
+// navbar affixs once past splashImg
 function navbarAffix() {
-  $('#nav').affix({
-    offset: {
-      top: $('.splash-image').height()
-    }
-  });
+  $nav.affix({ offset: { top: $splashImg.height() } });
 }
 
+// sends to /search?term=xxx on search form submit
 function searchFormSubmit() {
-  var searchForm = $('#search-form');
-  var searchInput = $('#search-input');
-  searchForm.on('submit', function(e) {
+  $searchForm.on('submit', function(e) {
     e.preventDefault();
-    window.location.href = 'http://localhost:3000/search?term=' + searchInput.val();
+    window.location.href = 'http://localhost:3000/search?term=' + $searchInput.val();
   });
 }
 
+// calls chopAndOrder with the value of select's option on change
 function selectPickerSort() {
-  var sp = $('.selectpicker');
-  sp.on('change', function(e) {
+  $selectPicker.on('change', function(e) {
+    var spVal = $selectPicker.val();
     e.preventDefault();
-    var spVal = sp.val();
     chopAndOrder(spVal);
   });
 }
 
 // chop and order artwork-thumbs accordingly
 function chopAndOrder(o) {
-  var order = o || '';
-  var thumbs = $('.artwork-thumb');
-  var artworksContainer = $('.artworks-container');
+  $thumbs.detach();
 
-  thumbs.detach();
-
-  if (order === 'alphabetical') {
-    // good sort example
-    thumbs.sort(function(a, b) {
-      a = $(a).data('peicename');
-      b = $(b).data('peicename');
-      if (a > b) { return 1; }
-      else if (a < b) { return -1; }
-      else { return 0 }
-    });
-
-    thumbs.each(function() { artworksContainer.append(this); });
-
+  if (o === 'alphabetical') {
+    var newArray = sortThumbArray('peicename');
+    newArray.each(function() { return $artworksContainers.append($(this)) });
   }
 
-  if (order === 'artist') {
-    thumbs.sort(function(a, b) {
-      a = $(a).data('artistname');
-      b = $(b).data('artistname');
-      if (a > b) { return 1; }
-      else if (a < b) { return -1; }
-      else { return 0 }
-    });
-
-    thumbs.each(function() { artworksContainer.append(this); });
+  if (o === 'artist') {
+    var newArray = sortThumbArray('artistname');
+    console.log(newArray);
+    newArray.each(function() { return $artworksContainers.append($(this)); });
   }
 
-  if (order === 'dateadded') {
-    thumbs.sort(function(a, b) {
-      a = $(a).data('dateadded');
-      b = $(b).data('dateadded');
-      if (a > b) { return 1; }
-      else if (a < b) { return -1; }
-      else { return 0 }
-    });
-
-    thumbs.each(function() { artworksContainer.append(this); });
+  if (o === 'dateadded') {
+    var newArray = sortThumbArray('dateadded');
+    newArray.each(function() { return $artworksContainers.append($(this)); });
   }
-
 }
 
+// pass in desired .data(attr) and return sorted array
+function sortThumbArray(dataname) {
+  var newArray = $thumbs.clone();
+  var na = newArray.sort(function(a, b) {
+    a = $(a).data(dataname);
+    b = $(b).data(dataname);
+    if (a > b) { return 1; }
+    else if (a < b) { return -1; }
+    else { return 0 }
+  });
+  return na;
+}
+
+
+
 $(document).ready(function() {
-  $('.selectpicker').selectpicker();
+  $selectPicker.selectpicker();
   navbarAffix();
   searchFormSubmit();
   selectPickerSort();
