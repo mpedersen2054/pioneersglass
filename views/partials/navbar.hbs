@@ -19,16 +19,13 @@
           <li><a href="#">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <p class="navbar-text">Sort by</p>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artist<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
+          <li class="selectpicker-container">
+            <select class="selectpicker form-control" title="Sort">
+              <option value="alphabetical">A - Z</option>
+              <option value="artist">Artist Name</option>
+              <option value="type">Type Name</option>
+              <option value="dateadded">Date Added</option>
+            </select>
           </li>
           <form id="search-form" class="navbar-form navbar-right" role="search">
             <div class="form-group">
