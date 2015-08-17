@@ -2,6 +2,7 @@ var express    = require('express');
 var bodyParser = require('body-parser');
 var hbs        = require('hbs');
 var path       = require('path');
+var RegExp     = require('regex');
 
 var app = express();
 
