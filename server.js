@@ -5,7 +5,6 @@ var path       = require('path');
 
 var app = express();
 
-console.log(process.env);
 
 // server
 var mongoose = require('mongoose'), dbName = 'kevin';
