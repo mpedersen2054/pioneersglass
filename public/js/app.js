@@ -48,15 +48,27 @@ function chopAndOrder(o) {
   }
 
   if (order === 'artist') {
-    console.log('artist!!', tNames)
+    thumbs.sort(function(a, b) {
+      a = $(a).data('artistname');
+      b = $(b).data('artistname');
+      if (a > b) { return 1; }
+      else if (a < b) { return -1; }
+      else { return 0 }
+    });
+
+    thumbs.each(function() { artworksContainer.append(this); });
   }
 
-  if (order === 'type') {
-    console.log('type!!', tNames)
-  }
+  if (order === 'dateadded') {
+    thumbs.sort(function(a, b) {
+      a = $(a).data('dateadded');
+      b = $(b).data('dateadded');
+      if (a > b) { return 1; }
+      else if (a < b) { return -1; }
+      else { return 0 }
+    });
 
-  if (order === 'date') {
-    console.log('date!!', tNames)
+    thumbs.each(function() { artworksContainer.append(this); });
   }
 
 }
