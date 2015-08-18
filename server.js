@@ -2,7 +2,6 @@ var express    = require('express');
 var bodyParser = require('body-parser');
 var hbs        = require('hbs');
 var path       = require('path');
-// var RegExp     = require('regex');
 
 var app = express();
 
@@ -17,7 +16,7 @@ db.once('open', function() { console.log('~~ connected to mongodb://'+dbName+' ~
 
 // middleware
 app.use(express.static(__dirname + '/public'));
-app.set('views', express.static(__dirname + '/views'));
+app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
 hbs.registerPartials(express.static(__dirname + '/views/partials'));
 app.use(bodyParser.json());
@@ -29,4 +28,4 @@ require('./routes')(app);
 require('./404_handler')(app);
 
 
-app.listen(3000, function() { console.log('listening'); });
+app.listen(process.env.PORT || 3000, function() { console.log('listening'); });
