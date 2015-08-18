@@ -29,7 +29,7 @@ module.exports = function(app) {
   app.get('/search', function(req, res) {
     // only accept ?term and decode uri
     var term = ('term' in req.query) ? decodeURIComponent(req.query.term) : '';
-    Artwork.find({ name: '/'+term+'/i' }, function(err, artworks) {
+    Artwork.findByName(term, function(err, artworks) {
       if(err) console.log(err);
       res.render('search', { artworks: artworks, term: term });
     });

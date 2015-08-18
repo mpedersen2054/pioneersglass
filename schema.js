@@ -23,6 +23,10 @@ ArtworkSchema.pre('save', function(next) {
   next();
 });
 
+ArtworkSchema.statics.findByName = function(name, cb) {
+  return this.find({ name: new RegExp(name, 'i') }, cb);
+}
+
 module.exports = {
   artworks: mongoose.model('Artwork', ArtworkSchema)
 }

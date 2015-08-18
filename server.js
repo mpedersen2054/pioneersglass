@@ -1,24 +1,33 @@
 var express    = require('express');
 var bodyParser = require('body-parser');
+var logger     = require('morgan');
 var hbs        = require('hbs');
 var path       = require('path');
+var mongoose   = require('mongoose');
+var fs         = require('fs');
 
 var app = express();
 
 
-// server
-var mongoose = require('mongoose'), dbName = 'kevin';
-mongoose.connect('mongodb://localhost/'+dbName);
+var c = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/kevin';
+mongoose.connect(c);
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() { console.log('~~ connected to mongodb://'+dbName+' ~~') });
+db.on('error', function (err) {
+  console.log('mongodb connection error: %s', err);
+  process.exit();
+});
+db.once('open', function () {
+  console.log('!*~Successfully connected to mongodb~*!');
+  app.emit('dbopen');
+});
 
 
 // middleware
 app.use(express.static(__dirname + '/public'));
-app.set('views', __dirname + '/views');
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-hbs.registerPartials(express.static(__dirname + '/views/partials'));
+hbs.registerPartials(__dirname + '/views/partials');
+app.use(logger('dev'));
 app.use(bodyParser.json());
 
 // Handle known route paths
@@ -28,4 +37,4 @@ require('./routes')(app);
 require('./404_handler')(app);
 
 
-app.listen(process.env.PORT || 3000, function() { console.log('listening'); });
+module.exports = app;
