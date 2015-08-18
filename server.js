@@ -17,7 +17,7 @@ db.once('open', function() { console.log('~~ connected to mongodb://'+dbName+' ~
 
 // middleware
 app.use(express.static(__dirname + '/public'));
-app.set('views', __dirname + '/views'));
+app.set('views', __dirname + '/views');
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 app.use(bodyParser.json());
